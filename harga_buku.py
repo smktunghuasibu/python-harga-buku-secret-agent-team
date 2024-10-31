@@ -1,23 +1,19 @@
-def harga_bayaran(jenisbuku,kuantiti):
-    harga_buku = {
-        1: 25.00,
-        2: 30.00,
-        3: 35.00
-    }
-    
-    harga_per_buku = harga_buku[jenisbuku]
-    
-    total_harga = harga_per_buku * kuantiti
-    
-    if kuantiti >= 5:
-        potongan_harga = total_harga * 0.10
+def harga_bayaran(jenisbuku, kuantiti):
+    if jenisbuku == 1:
+        harga_seunit = 6.00
+        kadar_diskaun = 0.1
+    elif jenisbuku == 2:
+        harga_seunit = 7.50
+        kadar_diskaun = 0.08
     else:
-        potongan_harga = 0.00
-        
-    harga_total = total_harga - potongan_harga
+        harga_seunit = 8.90
+        kadar_diskaun = 0.05
 
-    return potongan_harga, harga_total
-
+    harga_asal = harga_seunit * kuantiti
+    potongan_harga = harga_asal * kadar_diskaun
+    harga_total = harga_asal - potongan_harga
+    return (potongan_harga, harga_total)
+       
 def main():
     print("Senarai belian buku:")
     print("1.Latihan Pasti A,Bahasa Melayu,Tingkatan 1")
@@ -28,11 +24,11 @@ def main():
         if jenisbuku > 3 or jenisbuku < 1:
             print("Sila masukkan nombor 1 hingga 3 sahaja.")
         else:
-            break # exit when no error 
+            break # exit when no error
     kuantiti=int(input("Masukkan kuantiti buku yang dibeli:"))
     potongan_harga,harga_total = harga_bayaran(jenisbuku,kuantiti)
     print("Potongan harga yang diperoleh ialah RM", round(potongan_harga,2))
     print("Jumlah harga yang perlu dibayar ialah RM", round(harga_total,2))
-    
+   
 if __name__ == "__main__":
     main()
