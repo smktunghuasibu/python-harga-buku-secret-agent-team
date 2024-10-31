@@ -1,11 +1,22 @@
-def harga_bayaran(.........):
+def harga_bayaran(jenisbuku,kuantiti):
+    harga_buku = {
+        1: 25.00,
+        2: 30.00,
+        3: 35.00
+    }
     
+    harga_per_buku = harga_buku[jenisbuku]
+    
+    total_harga = harga_per_buku * kuantiti
+    
+    if kuantiti >= 5:
+        potongan_harga = total_harga * 0.10
+    else:
+        potongan_harga = 0.00
+        
+    harga_total = total_harga - potongan_harga
 
-
-
-
-
-    return 
+    return potongan_harga, harga_total
 
 def main():
     print("Senarai belian buku:")
