@@ -9,11 +9,11 @@ def harga_bayaran(jenisbuku, kuantiti):
         harga_seunit = 8.90
         kadar_diskaun = 0.05
 
-    harga_asal = harga_seunit * kuantiti
-    potongan_harga = harga_asal * kadar_diskaun
-    harga_total = harga_asal - potongan_harga
+    harga = harga_seunit * kuantiti
+    potongan_harga = harga * kadar_diskaun
+    harga_total = harga - potongan_harga
     return (potongan_harga, harga_total)
-       
+    
 def main():
     print("Senarai belian buku:")
     print("1.Latihan Pasti A,Bahasa Melayu,Tingkatan 1")
